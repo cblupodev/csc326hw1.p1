@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 	        {
 	          compress: true,
 	          yuicompress: true,
-	          optimization: 2
+	          optimization: 2,
+			  paths: ["less/"]
 	        },
 	        files: 
 	        [{
@@ -19,9 +20,20 @@ module.exports = function(grunt) {
 	  				src: "**/bootstrap.less",
 	  				dest: "www/css/",
 	  				ext: ".css"
-	        }
+	        },
+			{
+				"css/style.css": "less/local.less"
+			}
 	        ]
 	      }
+	  },
+	  
+	  bower_concat:
+	  {
+		all: 
+		{
+			dest: 'www/js/libs.js'
+		}
 	  }
   });
 
@@ -29,5 +41,5 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Rename task.
-
+  grunt.registerTask('package', 'bower_concat'); 
 };
