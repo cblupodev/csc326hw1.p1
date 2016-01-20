@@ -22,7 +22,11 @@ module.exports = function(grunt) {
 	  				ext: ".css"
 	        },
 			{
-				"css/style.css": "less/local.less"
+	  				expand: true,
+	  				cwd: "less",
+	  				src: "local.less",
+	  				dest: "www/css/",
+	  				ext: ".css"
 			}
 	        ]
 	      }
